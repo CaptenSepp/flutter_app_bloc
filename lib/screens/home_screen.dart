@@ -5,16 +5,16 @@ import '../cubit/counter_cubit.dart';
 import 'second_screen.dart';
 
 class HomeScreen extends StatelessWidget {
-  HomeScreen({Key? key, required this.color, required this.title})
+  final String title;
+  final MaterialColor color;
+  const HomeScreen({Key? key, required this.color, required this.title})
       : super(key: key);
 
-  MaterialColor color;
-  String title;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Flutter Bloc'),
+        title: Text(title),
       ),
       body: Center(
         child: Column(
@@ -86,7 +86,7 @@ class HomeScreen extends StatelessWidget {
                 MaterialPageRoute(
                   builder: (context) => BlocProvider.value(
                     value: BlocProvider.of<CounterCubit>(context),
-                    child: const SecondScreen(
+                    child: SecondScreen(
                       title: 'SecondScreen',
                       color: Colors.red,
                     ),

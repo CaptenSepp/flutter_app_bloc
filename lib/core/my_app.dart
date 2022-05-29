@@ -5,8 +5,14 @@ import '../cubit/counter_cubit.dart';
 import '../screens/home_screen.dart';
 import '../screens/second_screen.dart';
 
-class MyApp extends StatelessWidget {
-  MyApp({Key? key}) : super(key: key);
+class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   final CounterCubit _counterCubit = CounterCubit();
 
   @override
@@ -36,5 +42,10 @@ class MyApp extends StatelessWidget {
         },
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
   }
 }

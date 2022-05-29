@@ -4,13 +4,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../cubit/counter_cubit.dart';
 
 class SecondScreen extends StatelessWidget {
-  const SecondScreen({Key? key, required String title, required MaterialColor color}) : super(key: key);
+  final String title;
+  final MaterialColor color;
+  const SecondScreen({Key? key, required this.title, required this.color})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Flutter Bloc'),
+        title: Text(title),
       ),
       body: Center(
         child: Column(
