@@ -2,10 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../cubit/counter_cubit.dart';
+import 'second_screen.dart';
 
-class SecondScreen extends StatelessWidget {
-  const SecondScreen({Key? key, required String title, required MaterialColor color}) : super(key: key);
+class HomeScreen extends StatelessWidget {
+  HomeScreen({Key? key, required this.color, required this.title})
+      : super(key: key);
 
+  MaterialColor color;
+  String title;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -77,12 +81,19 @@ class SecondScreen extends StatelessWidget {
               ],
             ),
             ElevatedButton(
-              // : const Key('2'),
-              onPressed: () {},
-              child: const Icon(
-                Icons.navigate_next_rounded,
-                color: Colors.black,
+              key: const Key('1'),
+              onPressed: () => Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => BlocProvider.value(
+                    value: BlocProvider.of<CounterCubit>(context),
+                    child: const SecondScreen(
+                      title: 'SecondScreen',
+                      color: Colors.red,
+                    ),
+                  ),
+                ),
               ),
+              child: const Icon(Icons.navigate_next_rounded),
             )
           ],
         ),
