@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../cubit/counter_cubit.dart';
-import 'second_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   final String title;

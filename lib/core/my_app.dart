@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../cubit/counter_cubit.dart';
-import '../screens/home_screen.dart';
-import '../screens/second_screen.dart';
+import 'router/app_router.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -13,7 +12,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final CounterCubit _counterCubit = CounterCubit();
+  final AppRouter _appRouter = AppRouter();
 
   @override
   Widget build(BuildContext context) {
@@ -22,30 +21,16 @@ class _MyAppState extends State<MyApp> {
       child: MaterialApp(
         title: 'Flutter Bloc',
         theme: ThemeData(
-          primarySwatch: Colors.pink,
+          primarySwatch: Colors.yellow,
         ),
-        routes: {
-          '/': (context) => BlocProvider.value(
-                value: _counterCubit,
-                child: const HomeScreen(
-                  title: 'HomeScreen',
-                  // color: Colors.blue,
-                ),
-              ),
-          '/second': (context) => BlocProvider.value(
-                value: _counterCubit,
-                child: const SecondScreen(
-                  title: 'SecondScreen',
-                  // color: Colors.red,
-                ),
-              ),
-        },
+        onGenerateRoute: _appRouter.onGenerateRoute,
       ),
     );
   }
 
   @override
   void dispose() {
+    _appRouter.dispose();
     super.dispose();
   }
 }
