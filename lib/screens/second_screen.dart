@@ -1,33 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_bloc/cubit/counter_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'screens/second_screen.dart';
+import '../cubit/counter_cubit.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => CounterCubit(),
-      child: MaterialApp(
-        title: 'Flutter Bloc',
-        theme: ThemeData(
-          primarySwatch: Colors.pink,
-        ),
-        home: const MyHomePage(),
-      ),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+class SecondScreen extends StatelessWidget {
+  const SecondScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
