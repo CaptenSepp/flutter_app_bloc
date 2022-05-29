@@ -14,9 +14,9 @@ class MyApp extends StatelessWidget {
     return BlocProvider(
       create: (context) => CounterCubit(),
       child: MaterialApp(
-        title: 'Flutter Demo',
+        title: 'Flutter Bloc',
         theme: ThemeData(
-          primarySwatch: Colors.blue,
+          primarySwatch: Colors.pink,
         ),
         home: const MyHomePage(),
       ),
@@ -30,7 +30,9 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: const Text('Flutter Bloc'),
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -38,7 +40,28 @@ class MyHomePage extends StatelessWidget {
             const Text(
               'You have pushed the button this many times:',
             ),
-            BlocBuilder<CounterCubit, CounterState>(
+            BlocConsumer<CounterCubit, CounterState>(
+              listener: (context, state) {
+                if (state.wasIncremented == true) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text(
+                        'Incremented',
+                      ),
+                      duration: Duration(seconds: 1),
+                    ),
+                  );
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text(
+                        'Decremented',
+                      ),
+                      duration: Duration(seconds: 1),
+                    ),
+                  );
+                }
+              },
               builder: (context, state) {
                 if (state.counterValue == 5) {
                   return Text(
