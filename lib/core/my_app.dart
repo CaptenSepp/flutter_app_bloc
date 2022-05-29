@@ -1,22 +1,19 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../cubit/counter_cubit.dart';
+
 import 'router/app_router.dart';
 
-class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
+class MyApp extends StatelessWidget {
+  MyApp({Key? key}) : super(key: key);
 
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
   final AppRouter _appRouter = AppRouter();
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
+    return BlocProvider<CounterCubit>(
       create: (context) => CounterCubit(),
       child: MaterialApp(
         title: 'Flutter Bloc',
@@ -26,11 +23,5 @@ class _MyAppState extends State<MyApp> {
         onGenerateRoute: _appRouter.onGenerateRoute,
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    _appRouter.dispose();
-    super.dispose();
   }
 }
