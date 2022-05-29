@@ -27,16 +27,16 @@ class _MyAppState extends State<MyApp> {
         routes: {
           '/': (context) => BlocProvider.value(
                 value: _counterCubit,
-                child: HomeScreen(
+                child: const HomeScreen(
                   title: 'HomeScreen',
-                  color: Colors.blue,
+                  // color: Colors.blue,
                 ),
               ),
           '/second': (context) => BlocProvider.value(
                 value: _counterCubit,
                 child: const SecondScreen(
                   title: 'SecondScreen',
-                  color: Colors.red,
+                  // color: Colors.red,
                 ),
               ),
         },

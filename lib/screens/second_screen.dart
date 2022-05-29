@@ -5,9 +5,12 @@ import '../cubit/counter_cubit.dart';
 
 class SecondScreen extends StatelessWidget {
   final String title;
-  final MaterialColor color;
-  const SecondScreen({Key? key, required this.title, required this.color})
-      : super(key: key);
+  // final MaterialColor color;
+  const SecondScreen({
+    Key? key,
+    required this.title,
+    // required this.color,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
