@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../cubit/counter_cubit.dart';
 
 class SecondScreen extends StatelessWidget {
   final String title;
+
   // final MaterialColor color;
+
   const SecondScreen({
     Key? key,
     required this.title,
+
     // required this.color,
   }) : super(key: key);
 
@@ -71,6 +75,7 @@ class SecondScreen extends StatelessWidget {
                   child: const Icon(Icons.remove),
                   onPressed: () {
                     BlocProvider.of<CounterCubit>(context).decrement();
+
                     // context.read<CounterCubit>().decrement();
                   },
                 ),
@@ -83,8 +88,9 @@ class SecondScreen extends StatelessWidget {
               ],
             ),
             ElevatedButton(
-              // : const Key('2'),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pushNamed('/');
+              },
               child: const Icon(
                 Icons.navigate_next_rounded,
                 color: Colors.black,

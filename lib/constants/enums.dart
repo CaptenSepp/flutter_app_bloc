@@ -1,0 +1,4 @@
+enum ConnecionType {
+  wifi,
+  mobile,
+}
