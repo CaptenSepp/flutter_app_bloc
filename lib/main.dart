@@ -99,7 +99,7 @@ class MyHomePage extends StatelessWidget {
                 ),
               ],
             ),
-            ElevatedButton(
+            ElevatedButton(key: const Key('1'),
               onPressed: () => Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) => BlocProvider.value(

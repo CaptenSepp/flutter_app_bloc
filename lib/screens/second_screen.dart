@@ -77,15 +77,12 @@ class SecondScreen extends StatelessWidget {
               ],
             ),
             ElevatedButton(
-              onPressed: () => Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => BlocProvider.value(
-                    value: BlocProvider.of<CounterCubit>(context),
-                    child: const SecondScreen(),
-                  ),
-                ),
+              // : const Key('2'),
+              onPressed: () {},
+              child: const Icon(
+                Icons.navigate_next_rounded,
+                color: Colors.black,
               ),
-              child: const Icon(Icons.navigate_next_rounded),
             )
           ],
         ),
